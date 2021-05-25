@@ -16,7 +16,7 @@ namespace API.Helpers
 
             var userId = resultContext.HttpContext.User.GetUserId();
             //It is service locator pattern
-            var repo =  resultContext.HttpContext.RequestServices.GetService<IUserRepository>();
+            var repo =  resultContext.HttpContext.RequestServices.GetService<IUserRepository>();            
             var user  = await repo.GetUserByIdAsync(userId);
             user.LastActive = DateTime.Now;
             await repo.SaveAllAsync();
